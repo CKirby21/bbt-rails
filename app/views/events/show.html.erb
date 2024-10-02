@@ -1,0 +1,10 @@
+<h1><%= @event.name %></h1>
+
+<ul>
+  <li><%= link_to "Edit", edit_event_path(@event) %></li>
+  <li><%= link_to "Destroy", event_path(@event), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
+
