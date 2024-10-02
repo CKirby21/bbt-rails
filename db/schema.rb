@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_10_02_181347) do
+ActiveRecord::Schema[8.0].define(version: 2024_10_02_201748) do
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -27,6 +27,16 @@ ActiveRecord::Schema[8.0].define(version: 2024_10_02_181347) do
     t.datetime "updated_at", null: false
     t.string "status"
     t.index ["article_id"], name: "index_comments_on_article_id"
+  end
+
+  create_table "event_scores", force: :cascade do |t|
+    t.float "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "team_id", null: false
+    t.integer "event_id", null: false
+    t.index ["event_id"], name: "index_event_scores_on_event_id"
+    t.index ["team_id"], name: "index_event_scores_on_team_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -47,4 +57,6 @@ ActiveRecord::Schema[8.0].define(version: 2024_10_02_181347) do
   end
 
   add_foreign_key "comments", "articles"
+  add_foreign_key "event_scores", "events"
+  add_foreign_key "event_scores", "teams"
 end

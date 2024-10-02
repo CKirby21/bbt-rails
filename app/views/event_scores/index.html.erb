@@ -1,0 +1,16 @@
+<h1>Event Scores</h1>
+
+<% @scored_event_map_event_scores.each do |scored_event, event_scores| %>
+  <h3> <%= link_to scored_event.name, scored_event %> </h3>
+  <ul>
+    <% event_scores.each do |event_score| %>
+      <li>
+        <%= link_to event_score.team.name, event_score %>
+        <%= event_score.score %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= link_to "New Event Score", new_event_score_path %>
+

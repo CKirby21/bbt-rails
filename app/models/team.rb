@@ -1,3 +1,6 @@
 class Team < ApplicationRecord
-  has_and_belongs_to_many :events
+  has_many :event_scores, dependent: :destroy
+  has_many :events, through: :event_scores
+
+  validates :name, presence: true
 end

@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
     resources :events
 
+    resources :event_scores
+
     resources :articles do
       resources :comments
     end
