@@ -3,7 +3,15 @@
   <div>
     <%= form.label :name %><br>
     <%= form.text_field :name %>
-    <% event.errors.full_messages_for(:name).each do |message| %>
+    <% event.errors.full_messages_for(:date_of_event).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :date_of_event %><br>
+    <%= form.date_field :date_of_event %>
+    <% event.errors.full_messages_for(:date_of_event).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>

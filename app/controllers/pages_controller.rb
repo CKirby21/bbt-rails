@@ -15,5 +15,7 @@ class PagesController < ApplicationController
         @scored_event_map_event_scores[scored_event] << event_score
       end
     end
+
+    @scored_event_map_event_scores = @scored_event_map_event_scores.sort_by { |key, value| key.date_of_event }.reverse.to_h
   end
 end
