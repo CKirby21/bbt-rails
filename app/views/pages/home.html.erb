@@ -1,0 +1,20 @@
+<%= link_to "Event Scores", event_scores_path %>
+<%= link_to "Events", events_path %>
+<%= link_to "Teams", teams_path %>
+
+<% @scored_event_map_event_scores.each do |scored_event, event_scores| %>
+  <h2><%= scored_event.name %></h2>
+  <table>
+    <tr>
+      <th>Team</th>
+      <th>Score</th>
+    </tr>
+    <% event_scores.each do |event_score| %>
+      <tr>
+        <td><%= event_score.team.name %></td>
+        <td><%= event_score.score %></td>
+      </tr>
+    <% end %>
+  <table>
+<% end %>
+
