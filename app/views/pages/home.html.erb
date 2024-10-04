@@ -1,6 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title><%= content_for(:title) || "Bbt Rails" %></title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<%= csrf_meta_tags %>
+<%= csp_meta_tag %>
+
+<%= yield :head %>
+
+<%= javascript_importmap_tags %>
+
+</head>
+
+
+<body>
+
+<div>
 <%= link_to "Event Scores", event_scores_path %>
 <%= link_to "Events", events_path %>
 <%= link_to "Teams", teams_path %>
+</div>
 
 <% @scored_event_map_event_scores.each do |scored_event, event_scores| %>
   <h2><%= "#{scored_event.name}, #{scored_event.date_of_event}" %></h2>
@@ -17,4 +38,7 @@
     <% end %>
   <table>
 <% end %>
+
+</body>
+</html>
 
