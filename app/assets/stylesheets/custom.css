@@ -1,16 +1,81 @@
+/* Body ************************************************************************/
+
+body {
+  background-image: url('background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+/* Navbar **********************************************************************/
+
+nav {
+  background-color: #222;
+  /* width: 25%; */
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  list-style-type: none;
+}
+
+nav ul li {
+  float: left
+}
+
+nav ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  background-color: #111;
+}
+
+.active {
+  background-color: #111;
+}
+
+/* Table ***********************************************************************/
+
 table {
-  font-family: arial, sans-serif;
+  /* font-family: arial, sans-serif; */
   border-collapse: collapse;
   width: 50%;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 td, th {
-  border: 2px solid #dddddd;
+  /* border: 2px solid white; */
   text-align: left;
+  color: white;
   padding: 8px;
 }
 
+.table-title {
+  text-align: center;
+  background-color: #111;
+  font-size: 20px;
+}
+
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: #222;
+}
+
+tr:nth-child(odd) {
+  background-color: #333;
+}
+
+/* Misc ************************************************************************/
+
+a {
+  color: white;
 }
 

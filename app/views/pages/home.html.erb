@@ -17,15 +17,15 @@
 
 <body>
 
-<div>
-<%= link_to "Event Scores", event_scores_path %>
-<%= link_to "Events", events_path %>
-<%= link_to "Teams", teams_path %>
-</div>
+<%= render "topbar" %>
 
 <% @scored_event_map_event_scores.each do |scored_event, event_scores| %>
-  <h2><%= "#{scored_event.name}, #{scored_event.date_of_event}" %></h2>
   <table>
+    <tr>
+      <th class="table-title" colspan="2">
+        <%= "#{scored_event.name}, #{scored_event.date_of_event}" %>
+      </th>
+    </tr>
     <tr>
       <th>Team</th>
       <th>Score</th>

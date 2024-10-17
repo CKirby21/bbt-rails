@@ -1,9 +1,11 @@
+<%= render "pages/topbar" %>
+
 <h1>Event Scores</h1>
 
 <ul>
   <% @event_scores.each do |event_score| %>
     <li>
-      <%= link_to format("%s, %s, %.1f", event_score.event.name, event_score.team.name, event_score.score), event_score %>
+      <%= link_to format("%s, %s, %d", event_score.event.name, event_score.team.name, event_score.score), event_score %>
     </li>
   <% end %>
 </ul>
