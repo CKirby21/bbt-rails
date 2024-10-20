@@ -4,7 +4,7 @@ body {
   background-image: url('background.jpg');
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
   color: white;
 }
 
@@ -30,6 +30,7 @@ nav ul li a {
   display: block;
   color: white;
   text-align: center;
+  font-size: 12px;
   padding: 14px 16px;
   text-decoration: none;
 }
@@ -47,9 +48,10 @@ nav ul li a:hover {
 table {
   /* font-family: arial, sans-serif; */
   border-collapse: collapse;
-  width: 50%;
+  width: 100%;
   margin-top: 10px;
   margin-bottom: 10px;
+  font-size: 12px;
 }
 
 td, th {
@@ -62,7 +64,7 @@ td, th {
 .table-title {
   text-align: center;
   background-color: #111;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 tr:nth-child(even) {
@@ -74,6 +76,11 @@ tr:nth-child(odd) {
 }
 
 /* Misc ************************************************************************/
+
+.content {
+  max-width: 600px;
+  height: 100%;
+}
 
 a {
   color: white;

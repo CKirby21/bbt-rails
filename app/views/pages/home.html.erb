@@ -19,25 +19,43 @@
 
 <%= render "topbar" %>
 
-<% @scored_event_map_event_scores.each do |scored_event, event_scores| %>
+<div class="content">
   <table>
     <tr>
       <th class="table-title" colspan="2">
-        <%= "#{scored_event.name}, #{scored_event.date_of_event}" %>
+        <%= "Leaderboard #{@scored_event_recent.date_of_event.year}" %>
       </th>
     </tr>
     <tr>
       <th>Team</th>
       <th>Score</th>
     </tr>
-    <% event_scores.each do |event_score| %>
+    <% @event_scores_recent.each do |event_score| %>
       <tr>
         <td><%= event_score.team.name %></td>
         <td><%= event_score.score %></td>
       </tr>
     <% end %>
   <table>
-<% end %>
+
+  <table>
+    <tr>
+      <th class="table-title" colspan="2">
+        <%= "#{@scored_event_recent.name}, #{@scored_event_recent.date_of_event}" %>
+      </th>
+    </tr>
+    <tr>
+      <th>Team</th>
+      <th>Score</th>
+    </tr>
+    <% @event_scores_recent.each do |event_score| %>
+      <tr>
+        <td><%= event_score.team.name %></td>
+        <td><%= event_score.score %></td>
+      </tr>
+    <% end %>
+  <table>
+</div>
 
 </body>
 </html>

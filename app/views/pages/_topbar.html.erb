@@ -4,6 +4,10 @@
       <%= link_to 'Home', root_path %>
     </li>
 
+    <li class="<%= 'active' if current_page?(archive_path) %>">
+      <%= link_to 'Archive', archive_path %>
+    </li>
+
     <li class="<%= 'active' if current_page?(event_scores_path) %>">
       <%= link_to "Event Scores", event_scores_path %>
     </li>

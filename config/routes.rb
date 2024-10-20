@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     # root "articles#index"
     root "pages#home"
 
+    get "/archive", to: "pages#archive"
+
     resources :teams
 
     resources :events
