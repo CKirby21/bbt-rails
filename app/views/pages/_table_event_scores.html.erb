@@ -1,0 +1,13 @@
+<table>
+  <tr>
+    <th class="table-title" colspan="2">
+      <%= "#{event_scores.first.event.name}, #{event_scores.first.event.date_of_event}" %>
+    </th>
+  </tr>
+  <% event_scores.each do |event_score| %>
+    <tr>
+      <td><%= event_score.team.name %></td>
+      <td><%= event_score.score %></td>
+    </tr>
+  <% end %>
+<table>

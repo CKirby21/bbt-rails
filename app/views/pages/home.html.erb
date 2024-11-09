@@ -23,38 +23,17 @@
   <table>
     <tr>
       <th class="table-title" colspan="2">
-        <%= "Leaderboard #{@scored_event_recent.date_of_event.year}" %>
+        <%= "Leaderboard #{@year_recent}" %>
       </th>
     </tr>
-    <tr>
-      <th>Team</th>
-      <th>Score</th>
-    </tr>
-    <% @event_scores_recent.each do |event_score| %>
+    <% @leaderboard_recent.each do |team, points| %>
       <tr>
-        <td><%= event_score.team.name %></td>
-        <td><%= event_score.score %></td>
+        <td><%= team.name %></td>
+        <td><%= points %></td>
       </tr>
     <% end %>
   <table>
 
-  <table>
-    <tr>
-      <th class="table-title" colspan="2">
-        <%= "#{@scored_event_recent.name}, #{@scored_event_recent.date_of_event}" %>
-      </th>
-    </tr>
-    <tr>
-      <th>Team</th>
-      <th>Score</th>
-    </tr>
-    <% @event_scores_recent.each do |event_score| %>
-      <tr>
-        <td><%= event_score.team.name %></td>
-        <td><%= event_score.score %></td>
-      </tr>
-    <% end %>
-  <table>
 </div>
 
 </body>
