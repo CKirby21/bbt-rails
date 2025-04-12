@@ -82,7 +82,8 @@ Rails.application.configure do
   config.hosts = [
     "bbt-rails.org",     # Allow requests from example.com
     /.*\.bbt-rails\.org/, # Allow requests from subdomains like `www.example.com`
-    "98.179.4.161"
+    "98.179.4.161",
+    "0.0.0.0"
   ]
   #
   # Skip DNS rebinding protection for the default health check endpoint.

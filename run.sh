@@ -25,4 +25,5 @@ RAILS_MASTER_KEY="$(cat config/master.key)"
 # Entrypoint prepares the database.
 # ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
+./bin/rails db:migrate
 ./bin/rails server -b 0.0.0.0 -p 3000 -e "$RAILS_ENV"
