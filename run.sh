@@ -2,9 +2,9 @@
 
 # Set production environment
 export RAILS_ENV="production"
-export BUNDLE_DEPLOYMENT="1"
-export BUNDLE_PATH="/usr/local/bundle"
-export BUNDLE_WITHOUT="development"
+# export BUNDLE_DEPLOYMENT="1"
+# export BUNDLE_PATH="/usr/local/bundle"
+# export BUNDLE_WITHOUT="development"
 RAILS_MASTER_KEY=$(cat config/master.key)
 export RAILS_MASTER_KEY
 
