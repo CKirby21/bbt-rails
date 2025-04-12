@@ -8,7 +8,7 @@ RAILS_ENV="production"
 BUNDLE_DEPLOYMENT="1"
 BUNDLE_PATH="/usr/local/bundle"
 BUNDLE_WITHOUT="development"
-RAILS_MASTER_KEY=$(cat config/master.key)
+RAILS_MASTER_KEY="$(cat config/master.key)"
 
 # Precompile bootsnap code for faster boot times
 # RUN bundle exec bootsnap precompile app/ lib/
@@ -25,5 +25,4 @@ RAILS_MASTER_KEY=$(cat config/master.key)
 # Entrypoint prepares the database.
 # ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
-# EXPOSE 80
-./bin/rails server -b 0.0.0.0 -p 3000
+./bin/rails server -b 0.0.0.0 -p 3000 -e "$RAILS_ENV"
