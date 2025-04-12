@@ -1,14 +1,12 @@
 #!/usr/bin/env bash
 
-ruby --version
-bin/rails --version
-
 # Set production environment
-RAILS_ENV="production"
-BUNDLE_DEPLOYMENT="1"
-BUNDLE_PATH="/usr/local/bundle"
-BUNDLE_WITHOUT="development"
-RAILS_MASTER_KEY="$(cat config/master.key)"
+export RAILS_ENV="production"
+export BUNDLE_DEPLOYMENT="1"
+export BUNDLE_PATH="/usr/local/bundle"
+export BUNDLE_WITHOUT="development"
+RAILS_MASTER_KEY=$(cat config/master.key)
+export RAILS_MASTER_KEY
 
 # Precompile bootsnap code for faster boot times
 # RUN bundle exec bootsnap precompile app/ lib/
