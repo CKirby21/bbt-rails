@@ -60,41 +60,34 @@ class PagesController < ApplicationController
       end
     end
 
+    # Assumes event scores have been sorted from best to worst
     scored_event_map_event_scores.each do |_, event_scores|
-      place_points = FIRST_PLACE_POINTS
-      prev_event_score = nil
-      tied_teams = []
-      tied_points = 0
-
-      # Assumes event scores have been sorted from best to worst
+      score_map_teams = {}
       event_scores.each do |event_score|
-        leaderboard[event_score.team] += PARTICIPATION_POINTS
+        if !score_map_teams.key?(event_score.score)
+          score_map_teams[event_score.score] = []
+        end
+        score_map_teams[event_score.score] << event_score.team
+      end
+      score_map_teams = score_map_teams.sort_by { |score, _| score }.to_h
 
-        if prev_event_score == nil
-          leaderboard[event_score.team] += place_points
-        elsif event_score.score == prev_event_score.score
-          tied_teams << event_score.team
-          tied_points += place_points
-        else
-          # Give points to the previous teams that tied
-          if tied_points > 0
-            tied_points_fraction = tied_points / tied_teams.length
-            tied_teams.each do |tied_team|
-              leaderboard[tied_team] += tied_points_fraction
-            end
-            tied_teams = []
-            tied_points = 0
-          end
-
-          # Give points to the current team
-          leaderboard[event_score.team] += place_points
+      place_points = FIRST_PLACE_POINTS
+      score_map_teams.each do |score, teams|
+        points_pool = 0
+        for _ in 1..teams.length
+          points_pool += place_points
+          place_points -= 1
+          place_points = [ place_points, 0 ].max
         end
 
-        place_points -= 1
-        prev_event_score = event_score
+        teams.each do |team|
+          event_point_count = points_pool.fdiv(teams.length)
+          leaderboard[team] += event_point_count + PARTICIPATION_POINTS
+        end
       end
     end
 
+    leaderboard = leaderboard.sort_by { |_, score| score }.reverse.to_h
     leaderboard
   end
 end
