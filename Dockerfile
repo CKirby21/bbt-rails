@@ -67,5 +67,6 @@ USER 1000:1000
 # Entrypoint prepares the database.
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
-EXPOSE 80
-CMD ["./bin/rails", "server", "-p", "80"]
+EXPOSE 8080
+CMD ["./bin/rails", "server", "-p", "8080"]
+

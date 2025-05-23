@@ -1,0 +1,5 @@
+bbt-rails.org {
+    tls /etc/caddy/certs/cloudflare-origin.pem /etc/caddy/certs/cloudflare-origin.key
+    reverse_proxy 0.0.0.0:8080
+}
+
