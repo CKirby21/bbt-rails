@@ -7,7 +7,7 @@ image: ckirby21/bbt-rails
 # Deploy to these servers.
 servers:
   web:
-    - pi24.local
+    - 192.168.1.124
   # job:
   #   hosts:
   #     - 192.168.0.1
