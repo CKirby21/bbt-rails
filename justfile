@@ -1,11 +1,17 @@
-#!/usr/bin/env bash
+default:
+  just --list
 
-
-case "$1" in
-build)
+# Build the container
+build:
     docker build -t bbt-rails .
-;;
-run)
+
+# Cleans up docker
+clean:
+    docker stop bbt-rails
+    docker container remove bbt-rails
+
+# Run the container
+run:
     docker run -d \
         --restart unless-stopped \
         --volume /home/ckirby/bbt-rails/storage:/rails/storage \
@@ -13,18 +19,16 @@ run)
         -e RAILS_MASTER_KEY="$(cat config/master.key)" \
         --name bbt-rails \
         bbt-rails
-;;
-console)
+
+# Access the rails console
+console:
     docker exec -it bbt-rails bash -c "cd /rails && bin/rails console"
-;;
-log)
+
+# Tail the logs
+log:
     docker logs -f bbt-rails
-;;
-copy)
-    rsync -azP --exclude "bbt-rails/storage/*" ../bbt-rails ckirby@pi24.local:/home/ckirby/
-;;
-*)
-    echo "Usage: jus {build|run|console|log|copy}"
-;;
-esac
+
+# Copy source code to raspberry pi. Skip sqlite3 files. 
+copy:
+    rsync -azP --exclude "*.sqlite3" "../bbt-rails" ckirby@pi24.local:/home/ckirby/
 
