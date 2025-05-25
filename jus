@@ -1,14 +1,11 @@
 #!/usr/bin/env bash
 
-console () {
-    docker exec -it bbt-rails bash -c "cd /rails && bin/rails console"
-}
 
-build () {
+case "$1" in
+build)
     docker build -t bbt-rails .
-}
-
-run () {
+;;
+run)
     docker run -d \
         --restart unless-stopped \
         --volume /home/ckirby/bbt-rails/storage:/rails/storage \
@@ -16,9 +13,15 @@ run () {
         -e RAILS_MASTER_KEY="$(cat config/master.key)" \
         --name bbt-rails \
         bbt-rails
-}
-
-logs () {
+;;
+console)
+    docker exec -it bbt-rails bash -c "cd /rails && bin/rails console"
+;;
+log)
     docker logs -f bbt-rails
-}
+;;
+*)
+    echo "Usage: jus {build|run|console|log}"
+;;
+esac
 
