@@ -1,4 +1,5 @@
 class EventScoresController < ApplicationController
+  allow_unauthenticated_access only: %i[ index show ]
 
   def index
     @event_scores = EventScore.all

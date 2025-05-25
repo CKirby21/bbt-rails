@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  allow_unauthenticated_access only: %i[ home archive ]
+
   FIRST_PLACE_POINTS = 6
   PARTICIPATION_POINTS = 1
 
@@ -19,7 +21,6 @@ class PagesController < ApplicationController
 
   private
 
-  # :FIXME: Find a better way to do this
   def get_scored_event_map_event_scores
     event_scores = EventScore.all
 

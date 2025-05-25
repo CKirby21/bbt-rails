@@ -1,4 +1,6 @@
 class TeamsController < ApplicationController
+  allow_unauthenticated_access only: %i[ index show ]
+
   def index
     @teams = Team.all
   end
