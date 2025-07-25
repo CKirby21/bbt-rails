@@ -1,6 +1,9 @@
 default:
   just --list
 
+# run on prod machine to restart site with new changes
+doitall: build clean run log
+
 # Build the container
 build:
     docker build -t bbt-rails .

@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  allow_unauthenticated_access only: %i[ home archive ]
+  allow_unauthenticated_access only: %i[ home archive gallery ]
 
   FIRST_PLACE_POINTS = 6
   PARTICIPATION_POINTS = 1
