@@ -7,7 +7,7 @@
   <% event_scores.each do |event_score| %>
     <tr>
       <td><%= event_score.team.name %></td>
-      <td><%= event_score.score %></td>
+      <td><%= format("%.1f", event_score.score) %></td>
     </tr>
   <% end %>
 <table>

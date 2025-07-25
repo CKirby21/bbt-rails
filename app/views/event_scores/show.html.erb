@@ -2,7 +2,7 @@
 
 <h1><%= @event_score.event.name %></h1>
 <h2><%= @event_score.team.name %></h2>
-<h3><%= @event_score.score %></h3>
+<h3><%= format("%.1f", @event_score.score) %></h3>
 
 <ul>
   <li><%= link_to "Edit", edit_event_score_path(@event_score) %></li>
