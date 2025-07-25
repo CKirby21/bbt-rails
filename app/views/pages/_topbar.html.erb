@@ -8,6 +8,10 @@
       <%= link_to 'Archive', archive_path %>
     </li>
 
+    <li class="<%= 'active' if current_page?(gallery_path) %>">
+      <%= link_to "Gallery", gallery_path %>
+    </li>
+
     <li class="<%= 'active' if current_page?(event_scores_path) %>">
       <%= link_to "Event Scores", event_scores_path %>
     </li>

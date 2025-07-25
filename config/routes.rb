@@ -5,20 +5,17 @@ Rails.application.routes.draw do
   Rails.application.routes.draw do
   resource :session
   resources :passwords, param: :token
-    # root "articles#index"
     root "pages#home"
 
     get "/archive", to: "pages#archive"
+
+    get "/gallery", to: "pages#gallery"
 
     resources :teams
 
     resources :events
 
     resources :event_scores
-
-    resources :articles do
-      resources :comments
-    end
 
     # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   end
